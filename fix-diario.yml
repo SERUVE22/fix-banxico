@@ -1,0 +1,47 @@
+name: FIX Banxico diario
+
+# Corre de lunes a viernes. Banxico publica el FIX alrededor del mediodía
+# (hora del centro de México). 18:30 UTC ≈ 12:30 CDMX, con margen.
+on:
+  schedule:
+    - cron: "30 18 * * 1-5"
+  workflow_dispatch:        # permite ejecutarlo manualmente desde la pestaña Actions
+
+permissions:
+  contents: write           # para hacer commit del CSV y latest.json actualizados
+
+jobs:
+  actualizar-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Obtener el FIX y actualizar histórico
+        env:
+          BANXICO_TOKEN: ${{ secrets.BANXICO_TOKEN }}
+          # Umbrales opcionales de alerta (configúralos como Variables del repo o aquí):
+          FIX_UMBRAL_ALTO: ${{ vars.FIX_UMBRAL_ALTO }}
+          FIX_UMBRAL_BAJO: ${{ vars.FIX_UMBRAL_BAJO }}
+          FIX_VAR_PCT: ${{ vars.FIX_VAR_PCT }}
+        run: python fix_banxico.py
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config user.name  "fix-bot"
+          git config user.email "fix-bot@users.noreply.github.com"
+          git add fix_historico.csv latest.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios que guardar."
+          else
+            git commit -m "FIX $(date -u +%Y-%m-%d)"
+            git push
+          fi
