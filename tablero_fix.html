@@ -98,6 +98,81 @@
   .kpi .v.up{ color:var(--up); } .kpi .v.down{ color:var(--down); }
   .kpi .l { font-size:9.5px; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; margin-top:5px; }
 
+  /* PESTAÑAS DE FONDOS */
+  .fund-tabs { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:18px; }
+  .ftab { display:inline-flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:5px; padding:9px 14px; cursor:pointer; transition:border-color .15s,background .15s; }
+  .ftab:hover { border-color:var(--gold-dim); }
+  .ftab.on { background:linear-gradient(135deg,#17140e,#141416); border-color:var(--gold-dim); }
+  .ftab .fname { font-size:13px; font-weight:600; color:var(--muted); }
+  .ftab.on .fname { color:var(--gold); }
+  .ftab .fedit,.ftab .fclose { font-size:12px; color:#5f5b53; cursor:pointer; opacity:0; transition:opacity .15s,color .15s; }
+  .ftab.on .fedit,.ftab:hover .fedit,.ftab.on .fclose,.ftab:hover .fclose { opacity:1; }
+  .ftab .fedit:hover { color:var(--gold); } .ftab .fclose:hover { color:var(--down); }
+  .ftab-add { background:none; border:1px dashed var(--line); border-radius:5px; color:var(--muted); font-size:16px; font-weight:600; width:38px; height:38px; cursor:pointer; transition:border-color .15s,color .15s; }
+  .ftab-add:hover { border-color:var(--gold-dim); color:var(--gold); }
+  .fname-input { background:var(--bg); border:1px solid var(--gold-dim); border-radius:4px; color:var(--ink); font-size:13px; font-weight:600; padding:2px 6px; width:110px; outline:none; font-family:'Inter',sans-serif; }
+
+  /* BOLSAS DUALES */
+  .bags { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+  @media(max-width:680px){ .bags{ grid-template-columns:1fr; } }
+  .bag { background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:20px 22px; position:relative; overflow:hidden; }
+  .bag.usd { border-left:2px solid var(--gold); }
+  .bag.mxn { border-left:2px solid #6fa3c9; }
+  .bag .bag-label { font-size:10.5px; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:8px; }
+  .bag .bag-val { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:30px; line-height:1; }
+  .bag.usd .bag-val { color:var(--gold); } .bag.mxn .bag-val { color:#8fbde0; }
+  .bag .bag-cur { font-size:14px; font-weight:600; margin-left:6px; }
+  .bag .bag-sub { font-size:11px; color:#5f5b53; margin-top:8px; font-family:'JetBrains Mono',monospace; }
+
+  /* BARRA DE PROPORCIÓN */
+  .prop-wrap { margin-top:14px; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 20px; }
+  .prop-head { display:flex; justify-content:space-between; font-size:10.5px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted); margin-bottom:8px; }
+  .prop-bar { display:flex; height:16px; border-radius:3px; overflow:hidden; background:var(--panel2); }
+  .prop-usd { background:linear-gradient(90deg,#c9a05c,#a5824a); transition:width .3s; }
+  .prop-mxn { background:linear-gradient(90deg,#6fa3c9,#557f9c); transition:width .3s; }
+  .prop-legend { display:flex; gap:18px; margin-top:10px; font-size:11px; }
+  .prop-legend span { display:flex; align-items:center; gap:6px; color:var(--muted); }
+  .prop-legend .sw { width:9px; height:9px; border-radius:2px; }
+
+  /* TOTAL DUAL */
+  .total-dual { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; margin-top:14px; }
+  @media(max-width:680px){ .total-dual{ grid-template-columns:1fr; } }
+  .total-cell { background:linear-gradient(135deg,#17140e,#141416 70%); padding:18px 22px; }
+  .total-cell .tl { font-size:10px; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); }
+  .total-cell .tv { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:26px; color:var(--gold); margin-top:4px; }
+  .total-cell .tsub { font-size:10.5px; color:#5f5b53; margin-top:4px; }
+  .total-cell .tsub.up{ color:var(--up); } .total-cell .tsub.down{ color:var(--down); }
+
+  /* SPREAD DEL FONDO */
+  .fund-config { display:flex; gap:20px; align-items:end; flex-wrap:wrap; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 20px; margin-top:14px; }
+  .fund-config .cfg { display:flex; flex-direction:column; gap:6px; }
+  .fund-config label { font-size:10.5px; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted); }
+  .fund-config .sub { font-size:10px; color:#5f5b53; }
+  .fund-config input { width:90px; background:var(--panel2); border:1px solid var(--line); border-radius:5px; color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:14px; padding:8px 11px; outline:none; }
+  .fund-config input:focus { border-color:var(--gold-dim); }
+
+  /* PANEL OPORTUNIDAD */
+  .oppty { margin-top:16px; border-radius:6px; padding:22px 24px; border:1px solid; position:relative; overflow:hidden; transition:border-color .2s; }
+  .oppty.pos { background:linear-gradient(135deg,#12201a,#141416 70%); border-color:#1f4436; }
+  .oppty.neg { background:linear-gradient(135deg,#201312,#141416 70%); border-color:#44231f; }
+  .oppty.flat { background:var(--panel); border-color:var(--line); }
+  .oppty-head { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .oppty-head .dot { width:7px; height:7px; transform:rotate(45deg); background:var(--gold); }
+  .oppty-head h3 { font-family:'Playfair Display',serif; font-size:16px; color:#f3efe7; font-weight:600; }
+  .oppty-sub { font-size:11.5px; color:var(--muted); margin-bottom:16px; }
+  .oppty-nums { display:flex; align-items:baseline; gap:26px; flex-wrap:wrap; }
+  .oppty-big { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:38px; line-height:1; display:flex; align-items:center; gap:8px; }
+  .oppty-big.up{ color:var(--up); } .oppty-big.down{ color:var(--down); } .oppty-big.flat{ color:var(--muted); }
+  .oppty-pct { font-family:'JetBrains Mono',monospace; font-weight:600; font-size:22px; }
+  .oppty-pct.up{ color:var(--up); } .oppty-pct.down{ color:var(--down); } .oppty-pct.flat{ color:var(--muted); }
+  .oppty-arrow { font-size:30px; line-height:1; }
+  .oppty-detail { margin-top:14px; font-size:12px; color:#8a857c; }
+  .oppty-detail b { color:#bdb9b0; font-family:'JetBrains Mono',monospace; }
+  .oppty-msg { display:inline-block; margin-top:14px; font-size:12px; font-weight:600; padding:5px 12px; border-radius:3px; letter-spacing:.3px; }
+  .oppty-msg.up{ background:rgba(92,201,143,.12); color:var(--up); }
+  .oppty-msg.down{ background:rgba(224,122,106,.12); color:var(--down); }
+  .oppty-msg.flat{ background:rgba(138,133,124,.10); color:var(--muted); }
+
   .setup { background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:20px 22px; margin-top:16px; display:flex; gap:18px; align-items:end; flex-wrap:wrap; }
   .setup .field { flex:1; min-width:150px; }
   .setup .money input { font-size:18px; }
@@ -121,6 +196,12 @@
   table.ops .dir { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; padding:2px 8px; border-radius:3px; }
   .dir.usd2mxn { background:rgba(201,160,92,.12); color:var(--gold); }
   .dir.mxn2usd { background:rgba(92,201,143,.10); color:var(--up); }
+  /* Modo real/simulado + etiqueta SIM */
+  .op-mode { margin-bottom:14px; }
+  .seg-mode { max-width:360px; }
+  .seg-mode button[data-m="sim"].on { background:#7a6fc9; color:#fff; }
+  .sim-badge { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.5px; padding:1px 6px; border-radius:3px; background:rgba(122,111,201,.22); color:#b3a5e0; margin-left:6px; vertical-align:middle; }
+  tr.op-sim td { background:rgba(122,111,201,.05); }
   .pnl-pos { color:var(--up); } .pnl-neg { color:var(--down); }
   .del { color:var(--down); background:none; border:none; cursor:pointer; font-size:15px; opacity:.6; }
   .del:hover { opacity:1; }
@@ -211,35 +292,87 @@
 
     <div class="sec-title"><div class="dot"></div><h2>Simulador de fondos · ida y vuelta</h2></div>
 
+    <!-- Pestañas de fondos -->
+    <div class="fund-tabs" id="fundTabs"></div>
+
+    <!-- KPIs del fondo activo -->
     <div class="fund-top">
       <div class="kpi"><div class="v" id="kpiInit">1,000.00</div><div class="l">Capital inicial (USD)</div></div>
       <div class="kpi"><div class="v" id="kpiNow">1,000.00</div><div class="l">Valor actual (USD)</div></div>
-      <div class="kpi"><div class="v" id="kpiPnl">+0.00</div><div class="l">Rendimiento (USD)</div></div>
+      <div class="kpi"><div class="v" id="kpiPnl">+0.00</div><div class="l">Ganancia acum. (USD)</div></div>
       <div class="kpi"><div class="v" id="kpiPct">+0.00%</div><div class="l">Rendimiento (%)</div></div>
     </div>
 
-    <div class="setup">
-      <div class="field">
-        <label style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px;">Capital inicial (USD)</label>
-        <div class="money"><span class="cur">USD</span>
-          <input id="fundInit" type="number" value="1000" min="0" step="any"></div>
+    <!-- Bolsas duales -->
+    <div class="bags">
+      <div class="bag usd">
+        <div class="bag-label">Bolsa en dólares</div>
+        <div><span class="bag-val" id="bagUsd">1,000.00</span><span class="bag-cur" style="color:var(--gold)">USD</span></div>
+        <div class="bag-sub" id="bagUsdSub">≈ — MXN al FIX vigente</div>
       </div>
-      <div class="field" style="flex:0 0 auto;">
-        <label style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px;">Saldo disponible</label>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:12px 0;">
-          <span id="balUsd" style="color:var(--gold);font-weight:700;">1,000.00 USD</span>
-          <span style="color:var(--muted);"> · </span>
-          <span id="balMxn" style="color:var(--muted);">0.00 MXN</span>
-        </div>
+      <div class="bag mxn">
+        <div class="bag-label">Bolsa en pesos</div>
+        <div><span class="bag-val" id="bagMxn">0.00</span><span class="bag-cur" style="color:#8fbde0">MXN</span></div>
+        <div class="bag-sub" id="bagMxnSub">≈ — USD al FIX vigente</div>
       </div>
+    </div>
+
+    <!-- Barra de proporción -->
+    <div class="prop-wrap">
+      <div class="prop-head"><span>Distribución del fondo</span><span id="propPct">100% USD · 0% MXN</span></div>
+      <div class="prop-bar"><div class="prop-usd" id="propUsd" style="width:100%"></div><div class="prop-mxn" id="propMxn" style="width:0%"></div></div>
+      <div class="prop-legend">
+        <span><span class="sw" style="background:#c9a05c"></span> Dólares</span>
+        <span><span class="sw" style="background:#6fa3c9"></span> Pesos</span>
+      </div>
+    </div>
+
+    <!-- Total consolidado en ambas monedas -->
+    <div class="total-dual">
+      <div class="total-cell">
+        <div class="tl">Valor total del fondo</div>
+        <div class="tv" id="totalUsd">1,000.00 USD</div>
+        <div class="tsub" id="totalUsdSub">todo convertido a dólares</div>
+      </div>
+      <div class="total-cell">
+        <div class="tl">Valor total del fondo</div>
+        <div class="tv" id="totalMxn" style="color:#8fbde0">— MXN</div>
+        <div class="tsub" id="totalMxnSub">todo convertido a pesos</div>
+      </div>
+    </div>
+
+    <!-- Configuración del fondo: capital inicial + spread -->
+    <div class="fund-config">
+      <div class="cfg">
+        <label>Capital inicial (USD)</label>
+        <input id="fundInit" type="number" value="1000" min="0" step="any">
+        <span class="sub">se bloquea al operar</span>
+      </div>
+      <div class="cfg">
+        <label>Comisión / spread de este fondo</label>
+        <input id="fundSpread" type="number" value="0" min="0" step="0.1">
+        <span class="sub">% aplicado a cada cambio</span>
+      </div>
+      <div class="cfg" style="flex:1;"></div>
       <button class="btn ghost sm" id="resetFund">Reiniciar fondo</button>
     </div>
 
+    <!-- Registrador de operaciones -->
     <div class="op-builder">
+      <div class="op-mode">
+        <div class="seg seg-mode" id="opMode">
+          <button data-m="real" class="on">FIX real (histórico)</button>
+          <button data-m="sim">FIX simulado ✎</button>
+        </div>
+      </div>
       <div class="op-row">
-        <div>
+        <div id="opDateWrap">
           <label style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px;">Día de operación (FIX del histórico)</label>
           <select id="opDate" class="inp"></select>
+        </div>
+        <div id="opSimWrap" style="display:none;">
+          <label style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px;">FIX simulado (tú lo escribes)</label>
+          <input id="opSimFix" class="inp" type="number" placeholder="ej. 18.5000" min="0" step="0.0001" style="border-color:#7a6fc9;color:#b3a5e0;">
         </div>
         <div>
           <label style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:7px;">Dirección</label>
@@ -257,6 +390,17 @@
       <div class="hint" id="opHint">Sugerencia: cambia <b>USD → MXN</b> cuando el FIX esté <b>alto</b> (más pesos por dólar) y regresa <b>MXN → USD</b> cuando esté <b>bajo</b> para capturar ganancia. Si dejas el monto vacío, se usa todo el saldo disponible.</div>
     </div>
 
+    <div class="oppty flat" id="oppty">
+      <div class="oppty-head"><div class="dot"></div><h3>Oportunidad de cerrar ahora</h3></div>
+      <div class="oppty-sub" id="opptySub">Registra una operación para ver tu oportunidad al FIX del momento.</div>
+      <div class="oppty-nums">
+        <div class="oppty-big flat" id="opptyBig"><span class="oppty-arrow" id="opptyArrow"></span><span id="opptyMoney">—</span></div>
+        <div class="oppty-pct flat" id="opptyPct">—</div>
+      </div>
+      <div class="oppty-detail" id="opptyDetail"></div>
+      <div><span class="oppty-msg flat" id="opptyMsg">Sin posición abierta</span></div>
+    </div>
+
     <div class="sec-title"><div class="dot"></div><h2>Evolución del fondo</h2></div>
     <div class="sim" style="padding:20px 22px;">
       <svg class="fundchart" id="fundchart" viewBox="0 0 600 180" preserveAspectRatio="none"></svg>
@@ -265,7 +409,7 @@
     <div class="sec-title"><div class="dot"></div><h2>Historial de operaciones</h2></div>
     <div class="sim" style="padding:6px 8px;">
       <table class="ops" id="opsTable">
-        <thead><tr><th>Fecha</th><th>Operación</th><th>FIX</th><th>Entrega</th><th>Recibe</th><th>Valor fondo (USD)</th><th></th></tr></thead>
+        <thead><tr><th>Fecha</th><th>Operación</th><th>FIX</th><th>Entrega</th><th>Recibe</th><th>Valor fondo (USD)</th><th>Aporte (USD)</th><th></th></tr></thead>
         <tbody id="opsBody"></tbody>
       </table>
       <div class="empty" id="opsEmpty">Aún no hay operaciones. Registra tu primer cambio arriba.</div>
@@ -369,124 +513,330 @@
   $("amount").addEventListener("input",render);
   $("spread").addEventListener("input",render);
   $("swap").addEventListener("click",()=>{ dir=dir==="USD2MXN"?"MXN2USD":"USD2MXN"; $("swap").classList.toggle("spin"); render(); });
-  $("applyRate").addEventListener("click",()=>{ const v=parseFloat($("manualRate").value); if(v>0){ rate=v; $("srcTxt").textContent="manual"; setChip(null); render(); }});
+  $("applyRate").addEventListener("click",()=>{ const v=parseFloat($("manualRate").value); if(v>0){ rate=v; $("srcTxt").textContent="manual"; setChip(null); render(); if(typeof renderOpportunity==="function") renderOpportunity(); }});
   $("reload").addEventListener("click",loadLatest);
 
-  // ================= FONDOS =================
-  let fund = { init:1000, usd:1000, mxn:0, ops:[], dir:"USD2MXN" };
+  // ================= FONDOS (multi-fondo) =================
+  const STORE_KEY = "fixFunds_v2";
+  let funds = [];      // lista de fondos
+  let activeId = null; // id del fondo activo
+
+  const nuevoFondo = (nombre) => ({
+    id: "f"+Date.now()+Math.floor(Math.random()*1000),
+    nombre: nombre || "Fondo",
+    init: 1000, usd: 1000, mxn: 0, ops: [], dir: "USD2MXN", spread: 0
+  });
+
+  // --- Persistencia (guardar / cargar) ---
+  function saveFunds(){
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({funds, activeId})); } catch(e){}
+  }
+  function loadFunds(){
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if(raw){ const d=JSON.parse(raw); if(d.funds && d.funds.length){ funds=d.funds; activeId=d.activeId||funds[0].id; return; } }
+    } catch(e){}
+    // primer uso: un fondo por defecto
+    const f = nuevoFondo("Fondo 1"); funds=[f]; activeId=f.id;
+  }
+  const F = () => funds.find(x=>x.id===activeId) || funds[0];
+
+  // --- Pestañas de fondos ---
+  function renderTabs(){
+    const wrap=$("fundTabs"); wrap.innerHTML="";
+    funds.forEach(f=>{
+      const t=document.createElement("div");
+      t.className="ftab"+(f.id===activeId?" on":"");
+      t.innerHTML=`<span class="fname">${f.nombre}</span>
+        <span class="fedit" title="Renombrar">✎</span>
+        ${funds.length>1?'<span class="fclose" title="Eliminar fondo">✕</span>':''}`;
+      t.querySelector(".fname").addEventListener("click",()=>{ activeId=f.id; syncControls(); renderFund(); renderTabs(); saveFunds(); });
+      t.querySelector(".fedit").addEventListener("click",(e)=>{ e.stopPropagation(); editarNombre(f,t); });
+      const cl=t.querySelector(".fclose");
+      if(cl) cl.addEventListener("click",(e)=>{ e.stopPropagation(); eliminarFondo(f); });
+      wrap.appendChild(t);
+    });
+    const add=document.createElement("button");
+    add.className="ftab-add"; add.textContent="+"; add.title="Agregar fondo";
+    add.addEventListener("click",()=>{
+      const f=nuevoFondo("Fondo "+(funds.length+1)); funds.push(f); activeId=f.id;
+      syncControls(); renderFund(); renderTabs(); saveFunds();
+    });
+    wrap.appendChild(add);
+  }
+  function editarNombre(f, tabEl){
+    const span=tabEl.querySelector(".fname");
+    const inp=document.createElement("input");
+    inp.className="fname-input"; inp.value=f.nombre;
+    span.replaceWith(inp); inp.focus(); inp.select();
+    const commit=()=>{ f.nombre=(inp.value.trim()||f.nombre); renderTabs(); saveFunds(); };
+    inp.addEventListener("keydown",e=>{ if(e.key==="Enter") commit(); if(e.key==="Escape") renderTabs(); });
+    inp.addEventListener("blur",commit);
+  }
+  function eliminarFondo(f){
+    if(!confirm(`¿Eliminar el fondo "${f.nombre}"? Se perderán sus operaciones.`)) return;
+    funds=funds.filter(x=>x.id!==f.id);
+    if(activeId===f.id) activeId=funds[0].id;
+    syncControls(); renderFund(); renderTabs(); saveFunds();
+  }
+
+  // Sincroniza los controles (spread, capital, dirección) con el fondo activo
+  function syncControls(){
+    const f=F();
+    $("fundInit").value=f.init;
+    $("fundSpread").value=f.spread;
+    $("opDir").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x.dataset.d===f.dir));
+  }
 
   function fillOpDates(){
     const sel=$("opDate"); sel.innerHTML="";
     const src = history.length? history : demoHistory();
-    // orden cronológico ascendente
     src.forEach(p=>{ const o=document.createElement("option"); o.value=p.fix; o.textContent=`${p.fecha}  ·  ${fmt(p.fix,4)}`; sel.appendChild(o); });
-    // por defecto seleccionar el último (más reciente)
     sel.selectedIndex = src.length-1;
   }
 
+  let opMode = "real"; // "real" o "sim"
+  $("opMode").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+    $("opMode").querySelectorAll("button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); opMode=b.dataset.m;
+    $("opDateWrap").style.display = opMode==="real"?"block":"none";
+    $("opSimWrap").style.display = opMode==="sim"?"block":"none";
+  }));
+
   $("opDir").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
     $("opDir").querySelectorAll("button").forEach(x=>x.classList.remove("on"));
-    b.classList.add("on"); fund.dir=b.dataset.d; updateOpHint();
+    b.classList.add("on"); F().dir=b.dataset.d; updateOpHint(); saveFunds();
   }));
   function updateOpHint(){
-    const disponible = fund.dir==="USD2MXN" ? `${fmt(fund.usd,2)} USD` : `${fmt(fund.mxn,2)} MXN`;
+    const f=F();
+    const disponible = f.dir==="USD2MXN" ? `${fmt(f.usd,2)} USD` : `${fmt(f.mxn,2)} MXN`;
     $("opAmount").placeholder = "todo el saldo ("+disponible+")";
   }
 
   $("fundInit").addEventListener("input",()=>{
-    const v=parseFloat($("fundInit").value)||0;
-    if(fund.ops.length===0){ fund.init=v; fund.usd=v; fund.mxn=0; renderFund(); }
-    else { $("fundInit").value = fund.init; } // bloquear cambio si ya hay ops
+    const f=F(); const v=parseFloat($("fundInit").value)||0;
+    if(f.ops.length===0){ f.init=v; f.usd=v; f.mxn=0; renderFund(); saveFunds(); }
+    else { $("fundInit").value=f.init; }
+  });
+  $("fundSpread").addEventListener("input",()=>{
+    const f=F(); f.spread=Math.max(0,parseFloat($("fundSpread").value)||0);
+    renderFund(); saveFunds();
   });
   $("resetFund").addEventListener("click",()=>{
-    const v=parseFloat($("fundInit").value)||0;
-    fund={ init:v, usd:v, mxn:0, ops:[], dir:fund.dir }; renderFund();
+    const f=F(); const v=parseFloat($("fundInit").value)||0;
+    f.init=v; f.usd=v; f.mxn=0; f.ops=[]; renderFund(); saveFunds();
   });
+
+  // Tipo de cambio efectivo al operar, considerando el spread del fondo.
+  // USD->MXN: recibes menos pesos.  MXN->USD: te cuesta más pesos por dólar.
+  function fixEfectivo(fix, dir, spread){
+    const s=(spread||0)/100;
+    return dir==="USD2MXN" ? fix*(1-s) : fix*(1+s);
+  }
 
   $("addOp").addEventListener("click",()=>{
-    const fix=parseFloat($("opDate").value); if(!fix) return;
-    const fecha=$("opDate").options[$("opDate").selectedIndex].textContent.split("·")[0].trim();
-    let monto=parseFloat($("opAmount").value);
-    let entrega,recibe,curFrom,curTo;
-    if(fund.dir==="USD2MXN"){
-      const disp=fund.usd; if(isNaN(monto)||monto<=0) monto=disp;
-      if(monto>disp+1e-9){ alert("No tienes suficiente USD. Disponible: "+fmt(disp,2)); return; }
-      recibe=monto*fix; fund.usd-=monto; fund.mxn+=recibe; entrega=monto; curFrom="USD"; curTo="MXN";
+    const f=F();
+    let fix, fecha, sim=false;
+    if(opMode==="sim"){
+      fix=parseFloat($("opSimFix").value);
+      if(!fix || fix<=0){ alert("Escribe un FIX simulado válido (ej. 18.50)."); return; }
+      sim=true;
+      fecha="SIM · "+fmt(fix,4);
     } else {
-      const disp=fund.mxn; if(isNaN(monto)||monto<=0) monto=disp;
-      if(monto>disp+1e-9){ alert("No tienes suficiente MXN. Disponible: "+fmt(disp,2)); return; }
-      recibe=monto/fix; fund.mxn-=monto; fund.usd+=recibe; entrega=monto; curFrom="MXN"; curTo="USD";
+      fix=parseFloat($("opDate").value); if(!fix) return;
+      fecha=$("opDate").options[$("opDate").selectedIndex].textContent.split("·")[0].trim();
     }
-    const valorUsd = fund.usd + (fund.mxn/fix);
-    fund.ops.push({fecha,fix,dir:fund.dir,entrega,recibe,curFrom,curTo,valorUsd});
-    $("opAmount").value=""; renderFund();
+    let monto=parseFloat($("opAmount").value);
+    const feff=fixEfectivo(fix,f.dir,f.spread);
+    let entrega,recibe,curFrom,curTo;
+    if(f.dir==="USD2MXN"){
+      const disp=f.usd; if(isNaN(monto)||monto<=0) monto=disp;
+      if(monto>disp+1e-9){ alert("No tienes suficiente USD. Disponible: "+fmt(disp,2)); return; }
+      recibe=monto*feff; f.usd-=monto; f.mxn+=recibe; entrega=monto; curFrom="USD"; curTo="MXN";
+    } else {
+      const disp=f.mxn; if(isNaN(monto)||monto<=0) monto=disp;
+      if(monto>disp+1e-9){ alert("No tienes suficiente MXN. Disponible: "+fmt(disp,2)); return; }
+      recibe=monto/feff; f.mxn-=monto; f.usd+=recibe; entrega=monto; curFrom="MXN"; curTo="USD";
+    }
+    const valorUsd = f.usd + (f.mxn/fix);
+    f.ops.push({fecha,fix,feff,spread:f.spread,dir:f.dir,entrega,recibe,curFrom,curTo,valorUsd,sim});
+    $("opAmount").value=""; if(opMode==="sim") $("opSimFix").value="";
+    renderFund(); saveFunds();
   });
 
-  function valorActualUsd(){
-    const lastFix = fund.ops.length? fund.ops[fund.ops.length-1].fix : rate;
-    return fund.usd + (fund.mxn/lastFix);
+  function valorActualUsd(f){
+    const lastFix = f.ops.length? f.ops[f.ops.length-1].fix : rate;
+    return f.usd + (f.mxn/lastFix);
   }
+
+  // Oportunidad de cerrar la posición AHORA, al FIX vigente y con spread del fondo
+  function renderOpportunity(){
+    const f=F(); const box=$("oppty");
+    const setClass=(cls)=>{ box.className="oppty "+cls; };
+    const tieneMxn = f.mxn > 0.01;
+    const tieneUsd = f.usd > 0.01;
+
+    // Sin nada que mostrar
+    if(f.usd<0.01 && f.mxn<0.01){
+      setClass("flat");
+      $("opptySub").textContent = "Fondo vacío. Define un capital inicial para empezar.";
+      $("opptyArrow").textContent="";
+      $("opptyMoney").textContent="—"; $("opptyMoney").parentElement.className="oppty-big flat";
+      $("opptyPct").textContent="—"; $("opptyPct").className="oppty-pct flat";
+      $("opptyDetail").innerHTML="";
+      $("opptyMsg").textContent="Sin saldo"; $("opptyMsg").className="oppty-msg flat";
+      return;
+    }
+
+    // CASO A: tienes pesos (posición abierta) -> oportunidad de CERRAR a dólares
+    if(tieneMxn){
+      const feff = fixEfectivo(rate,"MXN2USD",f.spread); // cerrar = MXN->USD, con spread
+      const usdSiCierro = f.usd + (f.mxn / feff);
+      const pnl = usdSiCierro - f.init;
+      const pct = f.init ? pnl/f.init*100 : 0;
+      const pos = pnl > 0.005, neg = pnl < -0.005;
+      const cls = pos ? "up" : neg ? "down" : "flat";
+      const arrow = pos ? "↑" : neg ? "↓" : "→";
+      setClass(pos?"pos":neg?"neg":"flat");
+      const spreadTxt = f.spread>0 ? ` (con ${fmt(f.spread,1)}% comisión → ${fmt(feff,4)})` : "";
+      $("opptySub").innerHTML = `<b style="color:var(--gold)">Estás en pesos.</b> Si conviertes tus <b style="color:#bdb9b0">${fmt(f.mxn,2)} MXN</b> de vuelta a dólares al FIX vigente de <b style="color:var(--gold)">${fmt(rate,4)}</b>${spreadTxt}:`;
+      $("opptyArrow").textContent = arrow; $("opptyArrow").className="oppty-arrow";
+      $("opptyBig").className="oppty-big "+cls;
+      $("opptyMoney").textContent = (pnl>=0?"+":"−")+fmt(Math.abs(pnl),2)+" USD";
+      $("opptyPct").className="oppty-pct "+cls;
+      $("opptyPct").textContent = (pct>=0?"+":"−")+fmt(Math.abs(pct),2)+"%";
+      $("opptyDetail").innerHTML = `Recuperarías <b>${fmt(usdSiCierro,2)} USD</b> · empezaste con <b>${fmt(f.init,2)} USD</b>`;
+      const msg = $("opptyMsg");
+      if(pos){ msg.className="oppty-msg up"; msg.textContent="✓ Cerrar hoy captura ganancia"; }
+      else if(neg){ msg.className="oppty-msg down"; msg.textContent="✕ Cerrar hoy sería con pérdida"; }
+      else { msg.className="oppty-msg flat"; msg.textContent="Punto de equilibrio"; }
+      return;
+    }
+
+    // CASO B: estás en dólares -> oportunidad de ENTRAR a pesos hoy
+    // Muestra cuántos pesos obtendrías al cambiar tu USD al FIX vigente
+    const feffE = fixEfectivo(rate,"USD2MXN",f.spread); // entrar = USD->MXN, con spread
+    const mxnSiCambio = f.usd * feffE;
+    // Referencia: comparar el FIX vigente con el promedio de compra histórico (si hay ops previas)
+    const comprasMxn = f.ops.filter(o=>o.dir==="USD2MXN");
+    let refTxt = "";
+    if(comprasMxn.length){
+      const fixProm = comprasMxn.reduce((a,o)=>a+o.fix,0)/comprasMxn.length;
+      const dif = rate - fixProm;
+      const arrowRef = dif>0 ? "↑" : dif<0 ? "↓" : "→";
+      refTxt = ` · FIX hoy ${arrowRef} ${fmt(Math.abs(dif),4)} vs tu compra prom. (${fmt(fixProm,4)})`;
+    }
+    setClass("flat");
+    $("opptySub").innerHTML = `<b style="color:var(--gold)">Estás en dólares.</b> Si cambias tus <b style="color:#bdb9b0">${fmt(f.usd,2)} USD</b> a pesos hoy al FIX vigente de <b style="color:var(--gold)">${fmt(rate,4)}</b>${f.spread>0?` (con ${fmt(f.spread,1)}% comisión → ${fmt(feffE,4)})`:""}:`;
+    $("opptyArrow").textContent = "→"; $("opptyArrow").className="oppty-arrow";
+    $("opptyBig").className="oppty-big flat";
+    $("opptyMoney").textContent = fmt(mxnSiCambio,2)+" MXN";
+    $("opptyPct").className="oppty-pct flat";
+    $("opptyPct").textContent = "";
+    $("opptyDetail").innerHTML = `Obtendrías <b>${fmt(mxnSiCambio,2)} MXN</b> por tus <b>${fmt(f.usd,2)} USD</b>${refTxt}`;
+    const msg=$("opptyMsg");
+    msg.className="oppty-msg flat";
+    msg.textContent = comprasMxn.length ? "Compara el FIX de hoy con tu compra previa y decide" : "Recuerda: FIX alto = más pesos por dólar";
+  }
+
   function renderFund(){
-    $("kpiInit").textContent=fmt(fund.init,2);
-    const now=valorActualUsd(), pnl=now-fund.init, pct=fund.init? pnl/fund.init*100:0;
+    const f=F();
+    // KPIs
+    $("kpiInit").textContent=fmt(f.init,2);
+    const now=valorActualUsd(f), pnl=now-f.init, pct=f.init? pnl/f.init*100:0;
     $("kpiNow").textContent=fmt(now,2);
     $("kpiPnl").textContent=(pnl>=0?"+":"−")+fmt(Math.abs(pnl),2); $("kpiPnl").className="v "+(pnl>0?"up":pnl<0?"down":"");
     $("kpiPct").textContent=(pct>=0?"+":"−")+fmt(Math.abs(pct),2)+"%"; $("kpiPct").className="v "+(pct>0?"up":pct<0?"down":"");
-    $("balUsd").textContent=fmt(fund.usd,2)+" USD"; $("balMxn").textContent=fmt(fund.mxn,2)+" MXN";
-    $("fundInit").disabled = fund.ops.length>0;
+
+    // Bolsas duales
+    $("bagUsd").textContent=fmt(f.usd,2);
+    $("bagMxn").textContent=fmt(f.mxn,2);
+    $("bagUsdSub").textContent="≈ "+fmt(f.usd*rate,2)+" MXN al FIX vigente";
+    $("bagMxnSub").textContent="≈ "+fmt(f.mxn/rate,2)+" USD al FIX vigente";
+
+    // Barra de proporción (valuando todo a USD)
+    const usdVal=f.usd, mxnValEnUsd=f.mxn/rate, tot=usdVal+mxnValEnUsd;
+    const pu = tot>0 ? usdVal/tot*100 : 100, pm = 100-pu;
+    $("propUsd").style.width=pu+"%"; $("propMxn").style.width=pm+"%";
+    $("propPct").textContent=`${fmt(pu,0)}% USD · ${fmt(pm,0)}% MXN`;
+
+    // Total consolidado en ambas monedas
+    const totalUsd=f.usd+(f.mxn/rate), totalMxn=(f.usd*rate)+f.mxn;
+    $("totalUsd").textContent=fmt(totalUsd,2)+" USD";
+    $("totalMxn").textContent=fmt(totalMxn,2)+" MXN";
+    const gUsd=totalUsd-f.init;
+    $("totalUsdSub").textContent=(gUsd>=0?"▲ +":"▼ −")+fmt(Math.abs(gUsd),2)+" USD vs inicial";
+    $("totalUsdSub").className="tsub "+(gUsd>0.005?"up":gUsd<-0.005?"down":"");
+    $("totalMxnSub").textContent="al FIX vigente "+fmt(rate,4);
+
+    $("fundInit").disabled = f.ops.length>0;
     updateOpHint();
-    // tabla
+
+    // Tabla con aporte por operación (ganancia/pérdida que dejó cada cambio)
     const body=$("opsBody"); body.innerHTML="";
-    $("opsEmpty").style.display = fund.ops.length? "none":"block";
-    fund.ops.forEach((o,i)=>{
+    $("opsEmpty").style.display = f.ops.length? "none":"block";
+    let valorPrev=f.init;
+    f.ops.forEach((o,i)=>{
+      const aporte = o.valorUsd - valorPrev;  // cuánto cambió el valor del fondo con esta operación
+      valorPrev = o.valorUsd;
+      const acls = aporte>0.005?"pnl-pos":aporte<-0.005?"pnl-neg":"";
+      const asign = aporte>=0?"+":"−";
       const tr=document.createElement("tr");
+      if(o.sim) tr.className="op-sim";
       const dcls=o.dir==="USD2MXN"?"usd2mxn":"mxn2usd";
       const dtxt=o.dir==="USD2MXN"?"USD → MXN":"MXN → USD";
-      tr.innerHTML=`<td>${o.fecha}</td>
+      const simBadge = o.sim ? '<span class="sim-badge">SIM</span>' : '';
+      tr.innerHTML=`<td>${o.fecha}${simBadge}</td>
         <td><span class="dir ${dcls}">${dtxt}</span></td>
         <td>${fmt(o.fix,4)}</td>
         <td>${fmt(o.entrega,2)} ${o.curFrom}</td>
         <td>${fmt(o.recibe,2)} ${o.curTo}</td>
         <td>${fmt(o.valorUsd,2)}</td>
+        <td class="${acls}">${asign}${fmt(Math.abs(aporte),2)}</td>
         <td><button class="del" data-i="${i}" title="Eliminar desde aquí">✕</button></td>`;
       body.appendChild(tr);
     });
     body.querySelectorAll(".del").forEach(b=>b.addEventListener("click",()=>{
-      const i=+b.dataset.i; recomputeFrom(i); // elimina de i en adelante
+      const i=+b.dataset.i; recomputeFrom(i);
     }));
     drawFundChart();
+    renderOpportunity();
   }
+
   function recomputeFrom(idx){
-    // rehacer el fondo desde cero con las operaciones antes de idx
-    const keep=fund.ops.slice(0,idx);
-    fund.usd=fund.init; fund.mxn=0; fund.ops=[];
+    const f=F();
+    const keep=f.ops.slice(0,idx);
+    f.usd=f.init; f.mxn=0; f.ops=[];
     keep.forEach(o=>{
-      if(o.dir==="USD2MXN"){ fund.usd-=o.entrega; fund.mxn+=o.recibe; }
-      else { fund.mxn-=o.entrega; fund.usd+=o.recibe; }
-      const valorUsd=fund.usd+(fund.mxn/o.fix);
-      fund.ops.push({...o,valorUsd});
+      if(o.dir==="USD2MXN"){ f.usd-=o.entrega; f.mxn+=o.recibe; }
+      else { f.mxn-=o.entrega; f.usd+=o.recibe; }
+      const valorUsd=f.usd+(f.mxn/o.fix);
+      f.ops.push({...o,valorUsd});
     });
-    renderFund();
+    renderFund(); saveFunds();
   }
+
   function drawFundChart(){
-    const svg=$("fundchart"); svg.innerHTML="";
-    const pts=[fund.init, ...fund.ops.map(o=>o.valorUsd)];
+    const f=F(); const svg=$("fundchart"); svg.innerHTML="";
+    const pts=[f.init, ...f.ops.map(o=>o.valorUsd)];
     if(pts.length<2){ svg.innerHTML=`<text x="300" y="95" fill="#5f5b53" font-size="12" text-anchor="middle" font-family="Inter">Registra operaciones para ver la evolución</text>`; return; }
-    const min=Math.min(...pts,fund.init), max=Math.max(...pts,fund.init);
+    const min=Math.min(...pts,f.init), max=Math.max(...pts,f.init);
     const pad=(max-min)*0.2||1, lo=min-pad, hi=max+pad, W=600,H=180;
     const x=i=>i/(pts.length-1)*W, y=v=>H-(v-lo)/(hi-lo)*H;
-    // línea base del capital inicial
-    const yBase=y(fund.init);
+    const yBase=y(f.init);
     let d="",area=`M0,${H} `;
     pts.forEach((v,i)=>{ const px=x(i),py=y(v); d+=(i?"L":"M")+px+","+py+" "; area+="L"+px+","+py+" "; });
     area+=`L${W},${H} Z`;
-    const end=pts[pts.length-1], col = end>=fund.init? "#5cc98f":"#e07a6a";
+    const end=pts[pts.length-1], col = end>=f.init? "#5cc98f":"#e07a6a";
     svg.innerHTML=`<defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".22"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>`
       +`<line x1="0" y1="${yBase}" x2="${W}" y2="${yBase}" stroke="#8a7a55" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>`
-      +`<text x="4" y="${yBase-5}" fill="#8a7a55" font-size="10" font-family="JetBrains Mono">inicial ${fmt(fund.init,0)}</text>`
+      +`<text x="4" y="${yBase-5}" fill="#8a7a55" font-size="10" font-family="JetBrains Mono">inicial ${fmt(f.init,0)}</text>`
       +`<path d="${area}" fill="url(#fg)"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`
       +`<circle cx="${x(pts.length-1)}" cy="${y(end)}" r="4" fill="${col}"/>`;
   }
+
+  // Inicializar fondos
+  loadFunds(); renderTabs(); syncControls();
 
   loadLatest();
 </script>
