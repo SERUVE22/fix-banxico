@@ -4,7 +4,7 @@ name: FIX Banxico diario
 # (hora del centro de México). 18:30 UTC ≈ 12:30 CDMX, con margen.
 on:
   schedule:
-    - cron: "30 18 * * 1-5"
+    - cron: "0 21 * * 1-5"
   workflow_dispatch:        # permite ejecutarlo manualmente desde la pestaña Actions
 
 permissions:
