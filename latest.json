@@ -1,15 +1,11 @@
 {
   "serie": "SF43718",
   "fuente": "Banco de México (SIE)",
-  "fecha": "22/10/2026",
-  "fix": 18.7005,
-  "variacion_pct": 0.3111,
-  "actualizado_utc": "2026-10-22T23:46:12",
+  "fecha": "23/10/2026",
+  "fix": 18.667,
+  "variacion_pct": -0.1791,
+  "actualizado_utc": "2026-10-23T23:39:55",
   "historial": [
-    {
-      "fecha": "10/09/2026",
-      "fix": 16.9722
-    },
     {
       "fecha": "11/09/2026",
       "fix": 16.9707
@@ -125,6 +121,10 @@
     {
       "fecha": "22/10/2026",
       "fix": 18.7005
+    },
+    {
+      "fecha": "23/10/2026",
+      "fix": 18.667
     }
   ]
 }
